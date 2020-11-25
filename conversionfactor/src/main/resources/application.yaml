@@ -1,6 +1,13 @@
 spring:
   application:
-    name: conversion-factor  datasource:    url: jdbc:h2:mem:conversiondb
+    name: conversion-factor
+  zipkin:
+    base-url: http://192.168.99.100:9411
+  sleuth:
+    sampler:
+      probability: 1.0
+    trace-id128: true
+      datasource:    url: jdbc:h2:mem:conversiondb
     driver-class-name: org.h2.Driver
     username: ibm
     password: ibm  h2:    console:      enabled: true  jpa:    show-sql: true
@@ -9,6 +16,8 @@ eureka:  instance:    instance-id: ${spring.application.name}:${random.int}  
     
     
 server:  port: 8100
+  
+  
   
   
   
